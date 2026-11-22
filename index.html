@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Advance Breed Comprehensive College | Sagamu</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f7fb;
+    color: #263247;
+    line-height: 1.7;
+}
+
+:root {
+    --navy: #071d49;
+    --blue: #123d79;
+    --gold: #e6b42c;
+    --light: #f5f7fb;
+    --white: #ffffff;
+}
+
+header {
+    background: var(--navy);
+    color: white;
+    padding: 18px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo {
+    height: 65px;
+    width: 65px;
+    border: 3px solid var(--gold);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    color: var(--gold);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.brand h1 {
+    font-size: 19px;
+    line-height: 1.3;
+}
+
+.brand p {
+    color: #e7d28d;
+    font-size: 13px;
+}
+
+nav {
+    background: #102e64;
+    padding: 14px 5%;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav a {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    margin: 5px 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: var(--gold);
+}
+
+.hero {
+    min-height: 570px;
+    background:
+    linear-gradient(90deg, rgba(3,17,48,.9), rgba(3,17,48,.35)),
+    url("images/school.jpg") center/cover;
+    display: flex;
+    align-items: center;
+    padding: 70px 9%;
+    color: white;
+}
+
+.hero-content {
+    max-width: 700px;
+}
+
+.hero h2 {
+    font-size: clamp(35px, 5vw, 55px);
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy);
+    padding: 13px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin: 5px;
+}
+
+.btn:hover {
+    background: white;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+}
+
+section {
+    padding: 75px 8%;
+}
+
+.container {
+    max-width: 1150px;
+    margin: auto;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-heading h2 {
+    color: var(--navy);
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.section-heading span {
+    display: block;
+    width: 65px;
+    height: 4px;
+    background: var(--gold);
+    margin: 12px auto;
+}
+
+.section-heading p {
+    max-width: 700px;
+    margin: auto;
+    color: #647086;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.about-grid img {
+    width: 100%;
+    border-radius: 12px;
+    min-height: 300px;
+    object-fit: cover;
+}
+
+.about-text h3 {
+    color: var(--navy);
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+.about-text p {
+    margin-bottom: 15px;
+}
+
+.light {
+    background: white;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 22px;
+}
+
+.card {
+    background: white;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 4px 18px rgba(0,0,0,.07);
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card h3 {
+    color: var(--navy);
+    margin-bottom: 10px;
+}
+
+.icon {
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+.message-box {
+    background: var(--navy);
+    color: white;
+    padding: 45px;
+    border-radius: 12px;
+}
+
+.message-box h2 {
+    color: var(--gold);
+    margin-bottom: 15px;
+}
+
+.uniform-section {
+    background: #eaf0f8;
+}
+
+.uniform-photo {
+    display: block;
+    width: 100%;
+    max-width: 650px;
+    margin: 25px auto;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px #0002;
+}
+
+.note {
+    color: #697386;
+    font-size: 14px;
+    text-align: center;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.gallery-grid p {
+    text-align: center;
+    margin-top: 8px;
+    font-weight: bold;
+}
+
+.admission-banner {
+    background: linear-gradient(120deg, #071d49, #174b8d);
+    color: white;
+    text-align: center;
+    border-radius: 12px;
+    padding: 55px 25px;
+}
+
+.admission-banner h2 {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.news-card {
+    overflow: hidden;
+    padding: 0;
+}
+
+.news-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.news-content {
+    padding: 22px;
+}
+
+form {
+    max-width: 650px;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px #0001;
+}
+
+form label {
+    display: block;
+    font-weight: bold;
+    margin-top: 12px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 13px;
+    margin: 7px 0;
+    border: 1px solid #ccd3df;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+textarea {
+    min-height: 110px;
+}
+
+button {
+    background: var(--navy);
+    color: white;
+    border: none;
+    padding: 14px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 15px;
+}
+
+button:hover {
+    background: var(--blue);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.contact-card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+footer {
+    background: #04132f;
+    color: white;
+    padding: 50px 8% 20px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+footer h3 {
+    color: var(--gold);
+    margin-bottom: 15px;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: var(--gold);
+}
+
+.copyright {
+    border-top: 1px solid #ffffff30;
+    padding-top: 20px;
+    text-align: center;
+    font-size: 13px;
+}
+
+@media(max-width: 750px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        min-height: 450px;
+    }
+
+    header {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .brand {
+        justify-content: center;
+    }
+
+    nav {
+        position: relative;
+    }
+
+    section {
+        padding: 55px 6%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="brand">
+        <div class="logo">ABCC</div>
+        <div>
+            <h1>ADVANCE BREED<br>COMPREHENSIVE COLLEGE</h1>
+            <p>SAGAMU, OGUN STATE, NIGERIA</p>
+        </div>
+    </div>
+</header>
+
+<!-- NAVIGATION -->
+<nav>
+    <a href="#home">Home</a>
+    <a href="#about">About Us</a>
+    <a href="#principal">Principal</a>
+    <a href="#academics">Academics</a>
+    <a href="#facilities">Facilities</a>
+    <a href="#uniform">Uniform</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#admission">Admission</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<!-- HOME -->
+<div class="hero" id="home">
+    <div class="hero-content">
+        <h2>Welcome to Advance Breed Comprehensive College</h2>
+        <p>
+            A place where knowledge grows, character develops,
+            talents are discovered and future leaders are prepared.
+        </p>
+        <a href="#about" class="btn">Discover Our School</a>
+        <a href="#admission" class="btn btn-outline">Apply for Admission</a>
+    </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about" class="light">
+    <div class="container">
+        <div class="section-heading">
+            <h2>About Our School</h2>
+            <span></span>
+            <p>Discover our commitment to education and student development.</p>
+        </div>
+
+        <div class="about-grid">
+            <img src="images/school.jpg" alt="Advance Breed school building">
+
+            <div class="about-text">
+                <h3>Education for a Brighter Future</h3>
+                <p>
+                    Advance Breed Comprehensive College is a school
+                    committed to learning, discipline, excellence and
+                    the development of young people.
+                </p>
+                <p>
+                    We believe every student has the ability to learn,
+                    grow and achieve great things when given the right
+                    guidance and opportunities.
+                </p>
+                <p>
+                    Our aim is to encourage students to become confident,
+                    responsible and knowledgeable members of society.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- MISSION AND VISION -->
+<section>
+    <div class="container">
+        <div class="section-heading">
+            <h2>Our Mission and Vision</h2>
+            <span></span>
+        </div>
+
+        <div class="cards">
+            <div class="card">
+                <div class="icon">🎯</div>
+                <h3>Our Mission</h3>
+                <p>
+                    To support quality learning, encourage good character
+                    and help students develop the skills they need for life.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🌟</div>
+                <h3>Our Vision</h3>
+                <p>
+                    To inspire students to become responsible,
+                    creative and successful future leaders.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🤝</div>
+                <h3>Our Values</h3>
+                <p>
+                    Respect, honesty, discipline, teamwork,
+                    hard work and excellence.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PRINCIPAL -->
+<section id="principal" class="light">
+    <div class="container">
+        <div class="section-heading">
+            <h2>A Message to Our Students</h2>
+            <span></span>
+        </div>
+
+        <div class="message-box">
+            <h2>Welcome to Our School</h2>
+            <p>
+                At Advance Breed Comprehensive College, we believe
+                education is an important foundation for a successful
+                future. We encourage every student to work hard,
+                respect others, remain curious and make the best
+                use of every learning opportunity.
+            </p>
+            <p>
+                Together, let us build a school community where
+                every learner is encouraged to reach their potential.
+            </p>
+            <br>
+            <strong>School Leadership</strong>
+        </div>
+    </div>
+</section>
+
+<!-- ACADEMICS -->
+<section id="academics">
+    <div class="container">
+        <div class="section-heading">
+            <h2>Our Academic Programmes</h2>
+            <span></span>
+            <p>Learning that develops knowledge, skills and confidence.</p>
+        </div>
+
+        <div class="cards">
+            <div class="card">
+                <div class="icon">📚</div>
+                <h3>English Language</h3>
+                <p>Reading, writing, speaking and communication skills.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🔢</div>
+                <h3>Mathematics</h3>
+                <p>Logical thinking, calculations and problem solving.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🔬</div>
+                <h3>Basic Science</h3>
+                <p>Exploring science and understanding the environment.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">💻</div>
+                <h3>Computer Studies</h3>
+                <p>Building computer knowledge and digital skills.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🌍</div>
+                <h3>Social Studies</h3>
+                <p>Understanding society, citizenship and culture.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">📖</div>
+                <h3>History</h3>
+                <p>Discovering important events and the past.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FACILITIES -->
+<section id="facilities" class="light">
+    <div class="container">
+        <div class="section-heading">
+            <h2>Our School Facilities</h2>
+            <span></span>
+            <p>Facilities that support learning and student development.</p>
+        </div>
+
+        <div class="cards">
+            <div class="card">
+                <div class="icon">🏫</div>
+                <h3>Classrooms</h3>
+                <p>Learning spaces for lessons, discussions and activities.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">📚</div>
+                <h3>Learning Resources</h3>
+                <p>Educational resources to support students and teachers.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">⚽</div>
+                <h3>Sports and Activities</h3>
+                <p>Opportunities for teamwork and physical development.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🧪</div>
+                <h3>Practical Learning</h3>
+                <p>Opportunities to explore ideas through practical learning.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SCHOOL UNIFORM -->
+<section id="uniform" class="uniform-section">
+    <div class="container">
+        <div class="section-heading">
+            <h2>Our School Uniform - 2026</h2>
+            <span></span>
+            <p>
+                Our school uniform represents our identity,
+                unity and sense of belonging.
+            </p>
+        </div>
+
+        <img
+            src="images/2026-school-uniform.jpg"
+            alt="Advance Breed Comprehensive College Sagamu school uniform"
+            class="uniform-photo">
+
+        <p class="note">
+            Replace this placeholder with a photograph of the
+            verified 2026 Sagamu campus uniform.
+        </p>
+    </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+    <div class="container">
+        <div class="section-heading">
+            <h2>Our School Gallery</h2>
+            <span></span>
+            <p>Explore moments from our school community.</p>
+        </div>
+
+        <div class="gallery-grid">
+            <div>
+                <img src="images/school.jpg" alt="School building">
+                <p>Our School</p>
+            </div>
+
+            <div>
+                <img src="images/students.jpg" alt="School students">
+                <p>Our Students</p>
+            </div>
+
+            <div>
+                <img src="images/classroom.jpg" alt="Classroom">
+                <p>Our Classrooms</p>
+            </div>
+
+            <div>
+                <img src="images/activities.jpg" alt="School activities">
+                <p>School Activities</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="light">
+    <div class="container">
+        <div class="section-heading">
+            <h2>Why Choose Our School?</h2>
+            <span></span>
+        </div>
+
+        <div class="cards">
+            <div class="card">
+                <h3>Quality Education</h3>
+                <p>We value learning and the academic development of students.</p>
+            </div>
+
+            <div class="card">
+                <h3>Good Character</h3>
+                <p>We encourage respect, responsibility and discipline.</p>
+            </div>
+
+            <div class="card">
+                <h3>Student Development</h3>
+                <p>We encourage students to discover their talents and abilities.</p>
+            </div>
+
+            <div class="card">
+                <h3>Learning Community</h3>
+                <p>We believe cooperation between students, teachers and parents matters.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- NEWS -->
+<section>
+    <div class="container">
+        <div class="section-heading">
+            <h2>School News and Events</h2>
+            <span></span>
+            <p>Keep up with school announcements and activities.</p>
+        </div>
+
+        <div class="cards">
+            <div class="card news-card">
+                <img src="images/students.jpg" alt="Students">
+                <div class="news-content">
+                    <h3>Welcome to Our School Website</h3>
+                    <p>Explore our school website and learn more about our community.</p>
+                </div>
+            </div>
+
+            <div class="card news-card">
+                <img src="images/classroom.jpg" alt="Classroom">
+                <div class="news-content">
+                    <h3>Learning and Education</h3>
+                    <p>Discover the subjects and learning opportunities available.</p>
+                </div>
+            </div>
+
+            <div class="card news-card">
+                <img src="images/activities.jpg" alt="School event">
+                <div class="news-content">
+                    <h3>School Activities</h3>
+                    <p>Visit this section for future school events and announcements.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ADMISSION BANNER -->
+<section id="admission" class="light">
+    <div class="container">
+        <div class="admission-banner">
+            <h2>Give Your Child a Bright Future</h2>
+            <p>
+                Take the next step towards joining
+                Advance Breed Comprehensive College.
+            </p>
+            <br>
+            <a href="#registration" class="btn">Start Registration</a>
+        </div>
+    </div>
+</section>
+
+<!-- REGISTRATION -->
+<section id="registration">
+    <div class="container">
+        <div class="section-heading">
+            <h2>Student Admission Interest Form</h2>
+            <span></span>
+            <p>Complete the form to express interest in admission.</p>
+        </div>
+
+        <form id="admissionForm">
+            <label>Student Full Name</label>
+            <input type="text" id="studentName" required>
+
+            <label>Parent or Guardian Name</label>
+            <input type="text" id="parentName" required>
+
+            <label>Phone Number</label>
+            <input type="tel" id="phone" required>
+
+            <label>Email Address</label>
+            <input type="email" id="email">
+
+            <label>Class Applying For</label>
+            <select id="className" required>
+                <option value="">Choose a class</option>
+                <option>JSS 1</option>
+                <option>JSS 2</option>
+                <option>JSS 3</option>
+                <option>SS 1</option>
+                <option>SS 2</option>
+                <option>SS 3</option>
+            </select>
+
+            <label>Additional Information</label>
+            <textarea id="message" placeholder="Write your message here"></textarea>
+
+            <button type="submit">Submit Interest</button>
+            <p id="formMessage"></p>
+        </form>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="light">
+    <div class="container">
+        <div class="section-heading">
+            <h2>Contact Our School</h2>
+            <span></span>
+            <p>We welcome enquiries from parents and visitors.</p>
+        </div>
+
+        <div class="contact-grid">
+            <div class="contact-card">
+                <div class="icon">📍</div>
+                <h3>Our Address</h3>
+                <p>Block 13, Oba Erinwole II Road, G.R.A., Sagamu, Ogun State.</p>
+            </div>
+
+            <div class="contact-card">
+                <div class="icon">📞</div>
+                <h3>Phone Number</h3>
+                <p>+234 805 7070 568</p>
+            </div>
+
+            <div class="contact-card">
+                <div class="icon">✉️</div>
+                <h3>Email Address</h3>
+                <p>info@advancebreedgroupofschools.com</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-grid">
+        <div>
+            <h3>ADVANCE BREED</h3>
+            <p>
+                Advance Breed Comprehensive College,
+                Sagamu, Ogun State, Nigeria.
+            </p>
+        </div>
+
+        <div>
+            <h3>Quick Links</h3>
+            <p><a href="#home">Home</a></p>
+            <p><a href="#about">About Us</a></p>
+            <p><a href="#academics">Academics</a></p>
+            <p><a href="#admission">Admission</a></p>
+        </div>
+
+        <div>
+            <h3>Contact</h3>
+            <p>+234 805 7070 568</p>
+            <p>info@advancebreedgroupofschools.com</p>
+            <p>Sagamu, Ogun State</p>
+        </div>
+    </div>
+
+    <div class="copyright">
+        <p>Copyright &copy; 2026 Advance Breed Comprehensive College.</p>
+        <p>All Rights Reserved.</p>
+    </div>
+</footer>
+
+<script>
+document.getElementById("admissionForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const student = {
+        studentName: document.getElementById("studentName").value,
+        parentName: document.getElementById("parentName").value,
+        phone: document.getElementById("phone").value,
+        email: document.getElementById("email").value,
+        className: document.getElementById("className").value,
+        message: document.getElementById("message").value
+    };
+
+    const registrations = JSON.parse(
+        localStorage.getItem("abccAdmissions") || "[]"
+    );
+
+    registrations.push(student);
+
+    localStorage.setItem(
+        "abccAdmissions",
+        JSON.stringify(registrations)
+    );
+
+    document.getElementById("formMessage").textContent =
+        "Your admission interest has been saved on this device.";
+
+    this.reset();
+});
+</script>
+
+</body>
+</html>
